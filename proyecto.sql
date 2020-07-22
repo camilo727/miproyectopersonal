@@ -24,7 +24,7 @@ CREATE TABLE `categoria` (
   `Id_Categoria` int(11) NOT NULL AUTO_INCREMENT,
   `Categoria` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_Categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `chat` */
 
@@ -47,6 +47,16 @@ CREATE TABLE `ciudad` (
   `Ciudad` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_ciudad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `descuento` */
+
+DROP TABLE IF EXISTS `descuento`;
+
+CREATE TABLE `descuento` (
+  `Id_descuento` int(11) NOT NULL AUTO_INCREMENT,
+  `descuento` int(100) DEFAULT NULL,
+  PRIMARY KEY (`Id_descuento`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `envios` */
 
@@ -73,7 +83,7 @@ CREATE TABLE `foto` (
   `Foto_quinta` varchar(100) DEFAULT NULL,
   `codigo_foto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_foto`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `genero` */
 
@@ -83,7 +93,7 @@ CREATE TABLE `genero` (
   `Id_genero` int(11) NOT NULL AUTO_INCREMENT,
   `Genero` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `inventario` */
 
@@ -92,11 +102,13 @@ DROP TABLE IF EXISTS `inventario`;
 CREATE TABLE `inventario` (
   `Id_Inventario` int(11) NOT NULL AUTO_INCREMENT,
   `Cantidad` int(100) DEFAULT NULL,
-  `Precio_Compra` decimal(10,10) DEFAULT NULL,
-  `Precio_venta` decimal(10,10) DEFAULT NULL,
+  `Precio_Compra` double DEFAULT NULL,
+  `Precio_venta` double DEFAULT NULL,
   `Id_producto` int(100) DEFAULT NULL,
+  `Id_talla` int(100) DEFAULT NULL,
+  `Id_descuento` int(100) DEFAULT NULL,
   PRIMARY KEY (`Id_Inventario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `pais` */
 
@@ -120,7 +132,7 @@ CREATE TABLE `producto` (
   `Id_genero` int(100) DEFAULT NULL,
   `Id_foto` int(100) DEFAULT NULL,
   PRIMARY KEY (`Id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `roles` */
 
@@ -131,6 +143,16 @@ CREATE TABLE `roles` (
   `rol` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id_roles`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `talla` */
+
+DROP TABLE IF EXISTS `talla`;
+
+CREATE TABLE `talla` (
+  `Id_talla` int(11) NOT NULL AUTO_INCREMENT,
+  `talla` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Id_talla`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `usuarios` */
 
@@ -145,7 +167,7 @@ CREATE TABLE `usuarios` (
   `Repeat_Pass` varchar(100) DEFAULT NULL,
   `Id_roles` int(100) DEFAULT NULL,
   PRIMARY KEY (`Id_Usuarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `venta_compras` */
 
